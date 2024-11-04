@@ -8,8 +8,8 @@ const page = () => {
       <div className="hidden w-1/2 bg-gray-100 lg:block">
          <Image 
             src='/images/meet_image.jpg'
-            width={1080}
-            height={1080}
+            width={100}
+            height={100}
             alt='login_image'
             className="object-cover w-full h-full"
          />
