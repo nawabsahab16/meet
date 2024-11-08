@@ -1,7 +1,10 @@
+"use client"
+
 import { Button } from '@/components/ui/button'
 import { Github } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
+import Link from 'next/link'
 
 const page = () => {
   return (
@@ -36,21 +39,30 @@ const page = () => {
            </svg> 
              Login with Google
             </Button>
-           </div> 
-             <div className="flex flex-col space-y-4 mt-6">
-               <div className="relative w-full">
-                 <div className="absolute inset-0 flex items-center">
-                  <span className="w-full border-t border-gray-400 dark:border-gray-600"> </span>
-                 </div>
-                 <div className="relative flex justify-center text-xs uppercase">
-                   <span className="bg-background px-2 text-grey-600"> Or </span>
-                 </div>
-               </div>
-                 <Button className="w-full bg-black text-white dark:hover:bg-gray-200 dark:bg-white dark:text-black"variant = "ghost">
+            </div>
+            <div className="flex flex-col space-y-4 mt-6">
+                <div className="relative w-full">
+                    <div className="absolute inset-0 flex items-center">
+                   <span className="w-full border-t border-gray-400 dark:border-gray-600"></span>
+                    </div>
+
+                    <div className="relative flex justify-center text-xs uppercase">
+                       <span className="bg-background px-2 text-gray-600">Or</span>
+                    </div>
+                </div>
+
+                <Button className="w-full bg-black text-white dark:hover:bg-gray-200 dark:bg-white dark:text-black " variant="ghost">
                     <Github className="w-5 h-5 mr-2"/>
-                     Login with GitHub 
-                 </Button>
-             </div>
+                    Login with Github
+                </Button>
+
+                <p className="text-sm text-center text-gray-600 dark:text-gray-400">
+                     Don&apos;t have an account?{" "}
+                <Link href="#" className="text-blue-500 hover:underline dark:text-blue-400">
+                  Create now
+                </Link>
+               </p>
+            </div>
          </div>
       </div>
     </div>
