@@ -5,13 +5,12 @@ import GithubProvider from "next-auth/providers/github"
 import GoogleProvider from "next-auth/providers/google";
 
 export const authOptions = {
- 
-    providers: [
+  
+  providers: [
     GithubProvider({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
     }),
-
     GoogleProvider({
         clientId: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET
@@ -30,20 +29,17 @@ export const authOptions = {
 
         return token;
     },
-
+    
     async session({ session, token }) {
          session.user.id= token.id;
         return session
       },
 
       async signIn({user,profile}) {
-
         await dbConnect();
-
         let dbUser = await User.findOne({email: user.email})
 
         if(!dbUser){
-
             dbUser = await User.create({
                 name:profile.name,
                 email:profile.email,
@@ -51,13 +47,10 @@ export const authOptions = {
                 isVerified:profile.email_verified ? true :false
             })
         }
-
          user.id = dbUser._id.toString();
          return true;
       }
-
   },
-  
   session:{
     strategy: 'jwt',
     maxAge : 90 * 24 * 60 * 60
